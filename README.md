@@ -1,4 +1,4 @@
-# Prueba Desarrollador Senior – Sergio Ortiz
+# Prueba Desarrollador Junior – Sergio Ortiz
 
 Este repositorio contiene la solución a las dos pruebas solicitadas:
 1. **Carga de archivo CSV con Django.**
