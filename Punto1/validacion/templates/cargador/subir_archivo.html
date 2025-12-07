@@ -1,28 +1,48 @@
+{% load static %}
 <!doctype html>
 <html>
 <head>
   <meta charset="utf-8">
   <title>Subir CSV - Validador</title>
+  <link rel="stylesheet" href="{% static 'validacion/css/estilos.css' %}">
 </head>
 <body>
-  <h1>Subir archivo CSV</h1>
+  <h1>Validacion de Estrutura de Archivo</h1>
 
-  <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Validar</button>
-  </form>
+  <div class="wrapper">
+    <div class="upload-box">
+        <h2>Subir<br>Archivo</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Procesar</button>
+        </form>
+    </div>
 
-  <hr>
-  <p>Instrucciones:</p>
-  <ul>
-    <li>El archivo debe estar separado por comas.</li>
-    <li>Debe tener exactamente 5 columnas por fila.</li>
-    <li>Columna 1: número (3-10 dígitos).</li>
-    <li>Columna 2: email válido.</li>
-    <li>Columna 3: CC o TI.</li>
-    <li>Columna 4: número entre 500000 y 1500000.</li>
-    <li>Columna 5: cualquier valor.</li>
-  </ul>
+    <div class="instructions">
+        <ul>
+            <li>
+                <div class="dot"></div>
+                <span>Seleccione un archivo CSV válido desde su computadora.</span>
+            </li>
+            <li>
+                <div class="dot"></div>
+                <span>El sistema procesará el archivo y leerá su contenido línea por línea.</span>
+            </li>
+            <li>
+                <div class="dot"></div>
+                <span>Las columnas serán separadas por comas de forma automática.</span>
+            </li>
+            <li>
+                <div class="dot"></div>
+                <span>El contenido procesado se guardará en la base de datos SQLite.</span>
+            </li>
+            <li>
+                <div class="dot"></div>
+                <span>Una vez completado, se mostrará un mensaje indicando que el archivo fue procesado correctamente.</span>
+            </li>
+        </ul>
+    </div>
+  </div>
 </body>
 </html>
