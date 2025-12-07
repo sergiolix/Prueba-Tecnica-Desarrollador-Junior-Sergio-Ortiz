@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Subir CSV - Validador</title>
+</head>
+<body>
+  <h1>Subir archivo CSV</h1>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Validar</button>
+  </form>
+
+  <hr>
+  <p>Instrucciones:</p>
+  <ul>
+    <li>El archivo debe estar separado por comas.</li>
+    <li>Debe tener exactamente 5 columnas por fila.</li>
+    <li>Columna 1: número (3-10 dígitos).</li>
+    <li>Columna 2: email válido.</li>
+    <li>Columna 3: CC o TI.</li>
+    <li>Columna 4: número entre 500000 y 1500000.</li>
+    <li>Columna 5: cualquier valor.</li>
+  </ul>
+</body>
+</html>

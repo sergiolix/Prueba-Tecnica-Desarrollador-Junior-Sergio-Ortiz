@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Resultado validación</title>
+</head>
+<body>
+  <h1>Resultado de la validación</h1>
+
+  {% if errores %}
+    <h2>Errores encontrados</h2>
+    <ul>
+      {% for e in errores %}
+        <li>{{ e }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p style="color:green;">{{ mensaje }}</p>
+  {% endif %}
+
+  <a href="{% url 'subir_archivo' %}">Volver</a>
+</body>
+</html>
